@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bağlantılarım</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        a {
-            display: block;
-            margin: 10px;
-            padding: 12px 24px;
-            background: #0077b5;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            width: 200px;
-            text-align: center;
-            transition: background 0.3s;
-        }
-        a:hover { background: #005582; }
-        .youtube { background: #ff0000; }
-        .twitter { background: #1da1f2; }
-        .linkedin { background: #0077b5; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bağlantılarım</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+  }
+
+  .logo {
+    width: 120px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  h1 { margin-bottom: 40px; }
+
+  a {
+    display: block;
+    width: 220px;
+    margin: 10px auto;
+    padding: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .youtube { background: #ff0000; }
+  .youtube:hover { background: #cc0000; transform: scale(1.05); }
+
+  .twitter { background: #1da1f2; }
+  .twitter:hover { background: #0d95e8; transform: scale(1.05); }
+
+  .linkedin { background: #0077b5; }
+  .linkedin:hover { background: #005582; transform: scale(1.05); }
+</style>
 </head>
 <body>
-    <h2>Benim bağlantılarım</h2>
-    <a href="https://youtube.com/@seninlinkin" class="youtube">YouTube</a>
-    <a href="https://twitter.com/seninlinkin" class="twitter">Twitter / X</a>
-    <a href="https://linkedin.com/in/seninlinkin" class="linkedin">LinkedIn</a>
+  <img src="logo.png" alt="Logo" class="logo">
+  <h1>Benim Bağlantılarım</h1>
+  <a href="https://youtube.com/@CalestialKhan" class="youtube">YouTube</a>
+  <a href="https://x.com/CalestialKhan" class="twitter">Twitter / X</a>
+  <a href="https://linkedin.com/in/ulgenbilgin" class="linkedin">LinkedIn</a>
 </body>
 </html>
