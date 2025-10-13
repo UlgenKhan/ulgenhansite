@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ülgen</title>
 
+
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="favicon.png">
+ <link rel="icon" type="image/png" href="favicon.png">
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   body {
@@ -26,14 +27,26 @@
     text-align: center;
   }
 
+  /*Logo animation*/
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
   .logo {
     width: 120px;
     margin-bottom: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: float 3s ease-in-out infinite;
   }
 
-  h1 { margin-bottom: 20px; font-size: 2.2rem; }
+  h1 { 
+    margin-bottom: 20px; 
+    font-size: 2.2rem; 
+  }
 
   .social-icons {
     display: flex;
@@ -69,13 +82,12 @@
   .contact-btn:hover {
     background: rgba(255,255,255,0.4);
   }
-
 </style>
 </head>
 <body>
 
   <img src="logo.png" alt="Logo" class="logo">
-  <h1>Reach Out</h1>
+  <h1> </h1>
 
   <div class="social-icons">
     <a href="https://x.com/CalestialKhan" target="_blank"><img src="twitter.png" alt="X / Twitter"></a>
@@ -83,7 +95,7 @@
     <a href="https://linkedin.com/in/ulgenbilgin" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <a class="contact-btn" href="mailto:ulgenbil@gmail.com?subject=[Enter A Subject]">Contact</a>
+  <a class="contact-btn" href="mailto:ulgenbil@gmail.com?subject=[Enter A Subject]">📧 Contact</a>
 
 </body>
 </html>
