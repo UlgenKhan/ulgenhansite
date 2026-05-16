@@ -140,7 +140,8 @@
   .social-footer {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
   }
 
   .social-link img {
@@ -161,6 +162,79 @@
   .section { display: none; animation: fadeIn 0.5s ease forwards; }
   .section.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* --- Yenilenen Anasayfa Tasarımı ve Butonları --- */
+  .home-container {
+    max-width: 700px;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 60px 40px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  }
+
+  .home-container h1 {
+    font-size: 2.8rem;
+    margin-top: 0;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .home-container h1 span {
+    color: var(--accent);
+    text-shadow: 0 0 15px var(--glow);
+  }
+
+  .home-container p {
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .home-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .home-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .home-btn.primary {
+    background: var(--accent);
+    color: #000;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  }
+
+  .home-btn.primary:hover {
+    box-shadow: 0 0 35px var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .home-btn.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+  }
+
+  .home-btn.secondary:hover {
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+    transform: translateY(-3px);
+  }
 
   /* --- Portfolio Grid Yapısı --- */
   .portfolio-controls { display: flex; gap: 15px; margin-bottom: 30px; }
@@ -292,6 +366,57 @@
     text-shadow: 0 0 10px var(--accent);
   }
 
+  /* --- Yenilenen İletişim Alanı Tasarımı --- */
+  .contact-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 500px;
+    margin: 60px auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+  }
+
+  .contact-card h2 {
+    margin-top: 0;
+    font-size: 2.2rem;
+    color: var(--accent);
+    text-shadow: 0 0 15px var(--glow);
+    letter-spacing: 1px;
+  }
+
+  .contact-card p {
+    color: #ccc;
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 14px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-btn:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 30px var(--accent);
+    transform: translateY(-3px);
+  }
+
   /* --- Mobile Responsive --- */
   @media (max-width: 768px) {
     body { overflow-y: auto; }
@@ -306,6 +431,10 @@
     .content-wrapper { padding: 20px; }
     .grid { grid-template-columns: 1fr; }
     .close-modal { top: 10px; right: 10px; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 1001; }
+    .contact-card { margin: 20px auto; padding: 35px 20px; }
+    .home-container { margin: 20px auto; padding: 40px 20px; }
+    .home-container h1 { font-size: 2rem; }
+    .home-cta-group { flex-direction: column; gap: 15px; }
   }
 </style>
 </head>
@@ -318,15 +447,15 @@
       <div class="nav-brand">ÜLGEN</div>
       
       <div class="nav-links">
-        <button class="nav-item active" onclick="showSection('home', this)">
+        <button id="navBtnHome" class="nav-item active" onclick="showSection('home', this)">
           <img src="home_icon.png" class="nav-icon"> 
           <span data-key="nav_home">Anasayfa</span>
         </button>
-        <button class="nav-item" onclick="showSection('portfolio', this)">
+        <button id="navBtnPortfolio" class="nav-item" onclick="showSection('portfolio', this)">
           <img src="portfolio_icon.png" class="nav-icon"> 
           <span data-key="nav_portfolio">Portfolyo</span>
         </button>
-        <button class="nav-item" onclick="showSection('contact', this)">
+        <button id="navBtnContact" class="nav-item" onclick="showSection('contact', this)">
           <img src="contact_icon.png" class="nav-icon"> 
           <span data-key="nav_contact">İletişim</span>
         </button>
@@ -344,17 +473,24 @@
       </div>
 
       <div class="social-footer">
-        <a href="#" class="social-link"><img src="linkedin.png" alt="Linkedin"></a>
-        <a href="#" class="social-link"><img src="twitter.png" alt="X"></a>
-        <a href="#" class="social-link"><img src="youtube.png" alt="Youtube"></a>
+        <a href="https://www.linkedin.com/in/ulgenbilgin/" target="_blank" class="social-link"><img src="linkedin.png" alt="Linkedin"></a>
+        <a href="https://x.com/CalestialKhan/" target="_blank" class="social-link"><img src="twitter.png" alt="X"></a>
+        <a href="https://www.youtube.com/@CalestialKhan" target="_blank" class="social-link"><img src="youtube.png" alt="Youtube"></a>
+        <a href="#" target="_blank" class="social-link"><img src="steam.png" alt="Steam"></a>
       </div>
     </div>
   </nav>
 
   <main class="content-wrapper">
     <section id="home" class="section active">
-      <h1 data-key="home_title">Hoş Geldin</h1>
-      <p data-key="home_desc">Ben bir Game Developer'ım. Unity ve C# ile dünyalar inşa ediyorum.</p>
+      <div class="home-container">
+        <h1 data-key="home_title">Merhaba, Ben <span>Ülgen</span></h1>
+        <p data-key="home_desc">Unity ve C# kullanarak gelişmiş oyun mekanikleri, araçlar ve sistemler geliştiriyorum.</p>
+        <div class="home-cta-group">
+          <button class="home-btn primary" onclick="navigateToSection('portfolio')" data-key="home_cta_port">Projelerimi Gör</button>
+          <button class="home-btn secondary" onclick="navigateToSection('contact')" data-key="home_cta_contact">Bana Ulaş</button>
+        </div>
+      </div>
     </section>
 
     <section id="portfolio" class="section">
@@ -362,7 +498,7 @@
       <div class="portfolio-controls">
         <button class="filter-btn active" onclick="filterGrid('all', this)" data-key="btn_all">Hepsi</button>
         <button class="filter-btn" onclick="filterGrid('pc', this)">PC</button>
-        <button class="filter-btn" onclick="filterGrid('hc', this)">Hypercasual</button>
+        <button class="filter-btn" onclick="filterGrid('hc', this)">Mobile</button>
       </div>
       
       <div class="grid" id="projectGrid">
@@ -525,9 +661,11 @@
     </section>
 
     <section id="contact" class="section">
-      <h2 data-key="contact_title">İletişim</h2>
-      <p data-key="contact_desc">Bana her zaman ulaşabilirsin.</p>
-      <a href="mailto:ulgenbil@gmail.com" class="filter-btn" style="text-decoration: none; color: black;" data-key="btn_mail">E-posta Gönder</a>
+      <div class="contact-card">
+        <h2 data-key="contact_title">İletişim</h2>
+        <p data-key="contact_desc">Bana her zaman ulaşabilirsin.</p>
+        <a href="mailto:ulgenbil@gmail.com" class="contact-btn" data-key="btn_mail">E-posta Gönder</a>
+      </div>
     </section>
   </main>
 </div>
@@ -542,8 +680,9 @@
 <script>
   const translations = {
     tr: {
-      nav_home: "Anasayfa", nav_portfolio: "Portfolyo", nav_contact: "İletişim",
-      home_title: "Hoş Geldin", home_desc: "Ben bir Game Developer'ım. Unity ve C# ile dünyalar inşa ediyorum.",
+      nav_home: "Anasayfa", nav_portfolio: "Projeler", nav_contact: "İletişim",
+      home_title: "Merhaba, Ben <span>Ülgen</span>", home_desc: "Unity ve C# kullanarak gelişmiş oyun mekanikleri, araçlar ve sistemler geliştiriyorum.",
+      home_cta_port: "Projelerimi Gör", home_cta_contact: "Bana Ulaş",
       port_title: "Projelerim", btn_all: "Hepsi",
       desc_blocktopia: "SQL tabanlı veri yönetimi.",
       desc_fighter: "Eğlenceli kalabalık mekanikleri ve dinamik savaşlar.",
@@ -551,8 +690,9 @@
       contact_title: "İletişim", contact_desc: "Bana her zaman ulaşabilirsin.", btn_mail: "E-posta Gönder"
     },
     en: {
-      nav_home: "Home", nav_portfolio: "Portfolio", nav_contact: "Contact",
-      home_title: "Welcome", home_desc: "I am a Game Developer. Building worlds with Unity and C#.",
+      nav_home: "Home", nav_portfolio: "Projects", nav_contact: "Contact",
+      home_title: "Hello, I'm <span>Ülgen</span>", home_desc: "Building advanced game mechanics, tools, and systems using Unity and C#.",
+      home_cta_port: "View My Work", home_cta_contact: "Contact Me",
       port_title: "My Projects", btn_all: "All",
       desc_blocktopia: "SQL-based data management.",
       desc_fighter: "Fun crowd mechanics and dynamic combats.",
@@ -565,7 +705,12 @@
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
       if (translations[lang][key]) {
-        el.innerText = translations[lang][key];
+        // HTML yapısını (<span> etiketini) korumak için innerHTML kullanıyoruz
+        if (key === 'home_title') {
+          el.innerHTML = translations[lang][key];
+        } else {
+          el.innerText = translations[lang][key];
+        }
       }
     });
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -577,6 +722,17 @@
     document.getElementById(id).classList.add('active');
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+  }
+
+  // Anasayfadaki butonların sidebar'ı da tetikleyerek sayfa değiştirmesini sağlayan fonksiyon
+  function navigateToSection(id) {
+    let targetBtn;
+    if (id === 'portfolio') targetBtn = document.getElementById('navBtnPortfolio');
+    if (id === 'contact') targetBtn = document.getElementById('navBtnContact');
+    
+    if (targetBtn) {
+      showSection(id, targetBtn);
+    }
   }
 
   function filterGrid(type, btn) {
@@ -595,7 +751,6 @@
   function openVideo(videoId) {
     const modal = document.getElementById('videoModal');
     const player = document.getElementById('modalPlayer');
-    // autoplay=1 ile tıklandığı an oynamaya başlar
     player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
     modal.style.display = 'flex';
   }
@@ -604,13 +759,23 @@
     const modal = document.getElementById('videoModal');
     const player = document.getElementById('modalPlayer');
     modal.style.display = 'none';
-    player.src = ''; // Video sesinin arkada çalmaya devam etmesini önlemek için sıfırlıyoruz
+    player.src = '';
   }
 
-  // ESC tuşuna basınca modalı kapatma desteği
   window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeVideo();
+    }
+  });
+
+  /* --- Otomatik Dil Kontrolü --- */
+  window.addEventListener('DOMContentLoaded', () => {
+    const browserLang = navigator.language || navigator.userLanguage;
+    if (!browserLang.startsWith('tr')) {
+      const enBtn = document.querySelector('.lang-switch .lang-btn:nth-child(2)');
+      if (enBtn) {
+        changeLanguage('en', enBtn);
+      }
     }
   });
 </script>
