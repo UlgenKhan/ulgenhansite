@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ülgen Bilgin | Portfolio</title>
+<title>Ülgen Bilgin | Projeler</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -99,7 +99,7 @@
     color: #fff;
   }
 
-  /* --- Alt Bölüm: Dil ve Sosyal Medya --- */
+  /* --- Footer Section: Language and Socials --- */
   .nav-footer {
     display: flex;
     flex-direction: column;
@@ -163,15 +163,15 @@
   .section.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* --- Yenilenen Anasayfa Tasarımı ve Butonları --- */
+  /* --- Homepage Section --- */
   .home-container {
     max-width: 700px;
-    margin: 80px auto 0 auto;
+    margin: 60px auto 0 auto;
     text-align: center;
     background: var(--glass);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    padding: 60px 40px;
+    padding: 50px 40px 40px 40px;
     backdrop-filter: blur(15px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   }
@@ -192,13 +192,14 @@
     font-size: 1.2rem;
     color: #ccc;
     line-height: 1.8;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
   }
 
   .home-cta-group {
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 45px;
   }
 
   .home-btn {
@@ -236,13 +237,99 @@
     transform: translateY(-3px);
   }
 
-  /* --- Portfolio Grid Yapısı --- */
-  .portfolio-controls { display: flex; gap: 15px; margin-bottom: 30px; }
+  /* --- Large Horizontal Social Links Grid --- */
+  .home-social-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    padding-top: 35px;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .home-social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ccc;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .home-social-item .icon-wrapper {
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .home-social-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  .home-social-item span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover Effects for Large Social Icons */
+  .home-social-item:hover {
+    color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .home-social-item:hover .icon-wrapper {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .home-social-item:hover img {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--accent));
+  }
+
+  .home-social-item:hover span {
+    text-shadow: 0 0 8px var(--glow);
+  }
+
+  /* --- Portfolio Section Headers & Descriptions --- */
+  .portfolio-header-block {
+    margin-bottom: 30px;
+  }
+
+  .portfolio-desc {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    min-height: 40px;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .portfolio-controls { display: flex; gap: 15px; margin-bottom: 25px; }
   .filter-btn {
     background: var(--glass); border: 1px solid var(--glass-border); color: white;
     padding: 10px 25px; border-radius: 25px; cursor: pointer; transition: 0.3s;
+    font-weight: 500;
   }
-  .filter-btn.active { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent); }
+  .filter-btn.active { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent); border-color: var(--accent); }
 
   .grid { 
     display: grid; 
@@ -257,7 +344,7 @@
     transition: 0.4s; 
   }
   
-  /* --- Hata Önleyici Akıllı Video Kutuları (Thumbnail) --- */
+  /* --- Smart Video Thumbnail Boxes --- */
   .video-box { 
     position: relative; 
     padding-bottom: 56.25%; 
@@ -320,7 +407,7 @@
   .info h3 { margin: 0 0 10px 0; font-size: 1.25rem; color: #fff; }
   .info p { margin: 0; font-size: 0.9rem; color: #ccc; }
 
-  /* --- Video Modal (Açılır Pencere) --- */
+  /* --- Video Modal Popup --- */
   .video-modal {
     position: fixed;
     top: 0;
@@ -366,7 +453,7 @@
     text-shadow: 0 0 10px var(--accent);
   }
 
-  /* --- Yenilenen İletişim Alanı Tasarımı --- */
+  /* --- Contact Area Section --- */
   .contact-card {
     background: var(--glass);
     border: 1px solid var(--glass-border);
@@ -417,7 +504,7 @@
     transform: translateY(-3px);
   }
 
-  /* --- Mobile Responsive --- */
+  /* --- Mobile Responsive Layout --- */
   @media (max-width: 768px) {
     body { overflow-y: auto; }
     .main-layout { flex-direction: column; height: auto; }
@@ -426,15 +513,19 @@
       position: sticky; top: 0; flex-direction: column; align-items: center;
     }
     .nav-logo, .nav-brand { display: none; }
-    .nav-links { flex-direction: row; justify-content: center; flex-wrap: wrap; }
-    .nav-item { width: auto; padding: 10px; font-size: 0.85rem; }
+    .nav-links { flex-direction: row; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    .nav-item { width: auto; padding: 10px 15px; font-size: 0.85rem; }
     .content-wrapper { padding: 20px; }
     .grid { grid-template-columns: 1fr; }
     .close-modal { top: 10px; right: 10px; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 1001; }
     .contact-card { margin: 20px auto; padding: 35px 20px; }
     .home-container { margin: 20px auto; padding: 40px 20px; }
     .home-container h1 { font-size: 2rem; }
-    .home-cta-group { flex-direction: column; gap: 15px; }
+    .home-cta-group { flex-direction: column; gap: 15px; margin-bottom: 30px; }
+    .home-social-grid { gap: 15px; flex-wrap: wrap; padding-top: 25px; }
+    .home-social-item .icon-wrapper { width: 50px; height: 50px; }
+    .home-social-item img { width: 22px; height: 22px; }
+    .home-social-item span { font-size: 0.75rem; }
   }
 </style>
 </head>
@@ -449,25 +540,25 @@
       <div class="nav-links">
         <button id="navBtnHome" class="nav-item active" onclick="showSection('home', this)">
           <img src="home_icon.png" class="nav-icon"> 
-          <span data-key="nav_home">Anasayfa</span>
+          <span data-key="nav_home"></span>
         </button>
         <button id="navBtnPortfolio" class="nav-item" onclick="showSection('portfolio', this)">
           <img src="portfolio_icon.png" class="nav-icon"> 
-          <span data-key="nav_portfolio">Portfolyo</span>
+          <span data-key="nav_portfolio"></span>
         </button>
         <button id="navBtnContact" class="nav-item" onclick="showSection('contact', this)">
           <img src="contact_icon.png" class="nav-icon"> 
-          <span data-key="nav_contact">İletişim</span>
+          <span data-key="nav_contact"></span>
         </button>
       </div>
     </div>
 
     <div class="nav-footer">
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="changeLanguage('tr', this)">
+        <button id="langBtnTr" class="lang-btn active" onclick="changeLanguage('tr', this)">
           <img src="tr_icon.png" alt="TR">
         </button>
-        <button class="lang-btn" onclick="changeLanguage('en', this)">
+        <button id="langBtnEn" class="lang-btn" onclick="changeLanguage('en', this)">
           <img src="en_icon.png" alt="EN">
         </button>
       </div>
@@ -476,7 +567,7 @@
         <a href="https://www.linkedin.com/in/ulgenbilgin/" target="_blank" class="social-link"><img src="linkedin.png" alt="Linkedin"></a>
         <a href="https://x.com/CalestialKhan/" target="_blank" class="social-link"><img src="twitter.png" alt="X"></a>
         <a href="https://www.youtube.com/@CalestialKhan" target="_blank" class="social-link"><img src="youtube.png" alt="Youtube"></a>
-        <a href="#" target="_blank" class="social-link"><img src="steam.png" alt="Steam"></a>
+	<a href="https://store.steampowered.com/curator/46128060-Calestial-Games/" target="_blank" class="social-link"><img src="steam.png" alt="Steam"></a>
       </div>
     </div>
   </nav>
@@ -484,21 +575,54 @@
   <main class="content-wrapper">
     <section id="home" class="section active">
       <div class="home-container">
-        <h1 data-key="home_title">Merhaba, Ben <span>Ülgen</span></h1>
-        <p data-key="home_desc">Unity ve C# kullanarak gelişmiş oyun mekanikleri, araçlar ve sistemler geliştiriyorum.</p>
+        <h1 data-key="home_title"></h1>
+        <p data-key="home_desc"></p>
+        
         <div class="home-cta-group">
-          <button class="home-btn primary" onclick="navigateToSection('portfolio')" data-key="home_cta_port">Projelerimi Gör</button>
-          <button class="home-btn secondary" onclick="navigateToSection('contact')" data-key="home_cta_contact">Bana Ulaş</button>
+          <button class="home-btn primary" onclick="navigateToSection('portfolio')" data-key="home_cta_port"></button>
+          <button class="home-btn secondary" onclick="navigateToSection('contact')" data-key="home_cta_contact"></button>
         </div>
+
+        <div class="home-social-grid">
+          <a href="https://www.linkedin.com/in/ulgenbilgin/" target="_blank" class="home-social-item">
+            <div class="icon-wrapper">
+              <img src="linkedin.png" alt="LinkedIn">
+            </div>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://x.com/CalestialKhan/" target="_blank" class="home-social-item">
+            <div class="icon-wrapper">
+              <img src="twitter.png" alt="X">
+            </div>
+            <span>Twitter</span>
+          </a>
+          <a href="https://www.youtube.com/@CalestialKhan" target="_blank" class="home-social-item">
+            <div class="icon-wrapper">
+              <img src="youtube.png" alt="YouTube">
+            </div>
+            <span>YouTube</span>
+          </a>
+	<a href="https://store.steampowered.com/curator/46128060-Calestial-Games/" target="_blank" class="home-social-item">
+	  <div class="icon-wrapper">
+	    <img src="steam.png" alt="Steam">
+	  </div>
+	  <span>Steam</span>
+	</a>
+        </div>
+
       </div>
     </section>
 
     <section id="portfolio" class="section">
-      <h2 data-key="port_title">Projelerim</h2>
+      <div class="portfolio-header-block">
+        <h2 data-key="port_title"></h2>
+        <p id="portfolioDesc" class="portfolio-desc" data-key="desc_all"></p>
+      </div>
+
       <div class="portfolio-controls">
-        <button class="filter-btn active" onclick="filterGrid('all', this)" data-key="btn_all">Hepsi</button>
-        <button class="filter-btn" onclick="filterGrid('pc', this)">PC</button>
-        <button class="filter-btn" onclick="filterGrid('hc', this)">Mobile</button>
+        <button class="filter-btn active" onclick="filterGrid('all', this)" data-key="btn_all"></button>
+        <button class="filter-btn" onclick="filterGrid('pc', this)" data-key="btn_pc"></button>
+        <button class="filter-btn" onclick="filterGrid('hc', this)" data-key="btn_mobile"></button>
       </div>
       
       <div class="grid" id="projectGrid">
@@ -510,7 +634,7 @@
           </div>
           <div class="info">
             <h3>City Builder & Clicker</h3>
-            <p data-key="desc_blocktopia">A city builder which we have to click buildings to gather resources.</p>
+            <p data-key="desc_blocktopia"></p>
           </div>
         </div>
 
@@ -521,7 +645,7 @@
           </div>
           <div class="info">
             <h3>Space Nomad</h3>
-            <p data-key="desc_blocktopia">A Topdown shooter game.</p>
+            <p data-key="desc_spaceNomad"></p>
           </div>
         </div>
 
@@ -532,7 +656,7 @@
           </div>
           <div class="info">
             <h3>FPS</h3>
-            <p data-key="desc_blocktopia">An fps game test.</p>
+            <p data-key="desc_fps"></p>
           </div>
         </div>
 
@@ -543,7 +667,7 @@
           </div>
           <div class="info">
             <h3>Fighter Crowd</h3>
-            <p data-key="desc_fighter">Eğlenceli kalabalık mekanikleri ve dinamik savaşlar.</p>
+            <p data-key="desc_fighter"></p>
           </div>
         </div>
 
@@ -554,7 +678,7 @@
           </div>
           <div class="info">
             <h3>Bulb Man</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_bulbman"></p>
           </div>
         </div>
 
@@ -565,7 +689,7 @@
           </div>
           <div class="info">
             <h3>Tire Monster</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_tiremonster"></p>
           </div>
         </div>
 
@@ -576,7 +700,7 @@
           </div>
           <div class="info">
             <h3>Gasoline Rush</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_gasolinerush"></p>
           </div>
         </div>
 
@@ -587,7 +711,7 @@
           </div>
           <div class="info">
             <h3>Collecta</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_collecta"></p>
           </div>
         </div>
 
@@ -598,21 +722,10 @@
           </div>
           <div class="info">
             <h3>Eat and Spit</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_eatandspit"></p>
           </div>
         </div>
-
-        <div class="card" data-type="hc">
-          <div onclick="openVideo('8aNDpv-KVqc')" class="video-box">
-            <img src="https://img.youtube.com/vi/8aNDpv-KVqc/maxresdefault.jpg" alt="Monster Liberation" class="thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <div class="info">
-            <h3>Monster Liberation</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
-          </div>
-        </div>
-
+	
         <div class="card" data-type="hc">
           <div onclick="openVideo('A7BmBFbHKA0')" class="video-box">
             <img src="https://img.youtube.com/vi/A7BmBFbHKA0/maxresdefault.jpg" alt="Smash the Bodies" class="thumbnail">
@@ -620,7 +733,7 @@
           </div>
           <div class="info">
             <h3>Smash the Bodies</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_smashthebodies"></p>
           </div>
         </div>
 
@@ -631,7 +744,7 @@
           </div>
           <div class="info">
             <h3>Barbie Army</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_barbiearmy"></p>
           </div>
         </div>
 
@@ -642,7 +755,7 @@
           </div>
           <div class="info">
             <h3>Visa Shooter</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_visashooter"></p>
           </div>
         </div>
 
@@ -653,7 +766,7 @@
           </div>
           <div class="info">
             <h3>Rock Wood And Gold</h3>
-            <p data-key="desc_bulbman">Bağımlılık yapıcı seviye tasarımları ve bulmacalar.</p>
+            <p data-key="desc_rockwoodgold"></p>
           </div>
         </div>
 
@@ -662,9 +775,9 @@
 
     <section id="contact" class="section">
       <div class="contact-card">
-        <h2 data-key="contact_title">İletişim</h2>
-        <p data-key="contact_desc">Bana her zaman ulaşabilirsin.</p>
-        <a href="mailto:ulgenbil@gmail.com" class="contact-btn" data-key="btn_mail">E-posta Gönder</a>
+        <h2 data-key="contact_title"></h2>
+        <p data-key="contact_desc"></p>
+        <a href="mailto:ulgenbil@gmail.com" class="contact-btn" data-key="btn_mail"></a>
       </div>
     </section>
   </main>
@@ -678,34 +791,68 @@
 </div>
 
 <script>
+  // Global translation dictionary containing localized strings
   const translations = {
     tr: {
       nav_home: "Anasayfa", nav_portfolio: "Projeler", nav_contact: "İletişim",
       home_title: "Merhaba, Ben <span>Ülgen</span>", home_desc: "Unity ve C# kullanarak gelişmiş oyun mekanikleri, araçlar ve sistemler geliştiriyorum.",
       home_cta_port: "Projelerimi Gör", home_cta_contact: "Bana Ulaş",
-      port_title: "Projelerim", btn_all: "Hepsi",
-      desc_blocktopia: "SQL tabanlı veri yönetimi.",
-      desc_fighter: "Eğlenceli kalabalık mekanikleri ve dinamik savaşlar.",
-      desc_bulbman: "Bağımlılık yapıcı seviye tasarımları ve bulmacalar.",
-      contact_title: "İletişim", contact_desc: "Bana her zaman ulaşabilirsin.", btn_mail: "E-posta Gönder"
+      port_title: "Projeler", 
+      btn_all: "Hepsi", btn_pc: "PC", btn_mobile: "Mobil",
+      desc_all: "Şu anda PC odaklı çalışıyorum ama geçmişte mobil için oyunlar da ürettim. Yaptığım işlerin bir kısmını buradan inceleyebilirsiniz",
+      desc_pc: "Pc için geliştirdiğim oyunlar, mekanik testlerim ve sistemlerim.",
+      desc_mobile: "Uzun zamandır mobil üzerine çalışmıyorum, buradaki işler oldukça eski. Ama göz atmaktan çekinmeyin.",
+      desc_blocktopia: "Tıklayarak kaynak kazandığımız bir şehir yönetimi oyunu.",
+      desc_fps: "FPS oyunu mekanik testi.",
+      desc_spaceNomad: "Yukarıdan bakışlı (Top-down) bir aksiyon/nişancı oyunu.",
+      desc_fighter: "3 boyutlu bir Snake VS Block denemesi",
+      desc_bulbman: "Etraftaki prizlerden şarj olup milleti şokladığımız bir hyper-casual oyun.",
+      desc_tiremonster: "Büyüyen ve engelleri ezen bir tekerlek canavarını yönettiğimiz bir mobil oyun.",
+      desc_gasolinerush: "Hız ve yakıt yönetimini temel alan dinamik bir hyper-casual koşucu oyunu.",
+      desc_collecta: "Çevredeki nesneleri toplayarak büyümeye ve hedeflere ulaşmaya dayalı arcade mekaniği.",
+      desc_eatandspit: "Nesneleri yutup fırlatarak rakipleri veya engelleri alt ettiğimiz bir konsept.",
+      desc_smashthebodies: "Adam tutup başkalarına vurarak parçaladığımız bir oyun.",
+      desc_barbiearmy: "Karakterleri toplayıp kendi ordumuzu kurarak ilerlediğimiz bir runner / arcade oyunu.",
+      desc_visashooter: "Para toplayıp peşimize takipçi taktığımız bir oyun.",
+      desc_rockwoodgold: "Kaynak toplama, üretim ve karakter geliştirme döngüsüne sahip mobil arcade idle projesi.",
+      contact_title: "İletişim", contact_desc: "Bana e-posta yoluyla ulaşabilirsiniz.", btn_mail: "E-posta Gönder"
     },
     en: {
       nav_home: "Home", nav_portfolio: "Projects", nav_contact: "Contact",
       home_title: "Hello, I'm <span>Ülgen</span>", home_desc: "Building advanced game mechanics, tools, and systems using Unity and C#.",
       home_cta_port: "View My Work", home_cta_contact: "Contact Me",
-      port_title: "My Projects", btn_all: "All",
-      desc_blocktopia: "SQL-based data management.",
-      desc_fighter: "Fun crowd mechanics and dynamic combats.",
-      desc_bulbman: "Addictive level designs and puzzle mechanics.",
+      port_title: "My Projects", 
+      btn_all: "All", btn_pc: "PC", btn_mobile: "Mobile",
+      desc_all: "I am currently focusing on PC development, but I have also created mobile games in the past. You can explore some of my work here.",
+      desc_pc: "PC games, mechanic tests, and systems that I have developed or am currently developing.",
+      desc_mobile: "I haven't worked on mobile for a long time; the projects here are quite old. But feel free to check them out.",
+      desc_blocktopia: "A city management game where we gather resources by clicking.",
+      desc_fps: "An FPS game mechanic test.",
+      desc_spaceNomad: "A top-down action shooter game.",
+      desc_fighter: "A 3D interpretation of a Snake VS Block concept.",
+      desc_bulbman: "A hyper-casual game where we charge up from nearby outlets and shock others.",
+      desc_tiremonster: "A mobile game where we manage a growing tire monster that crushes obstacles.",
+      desc_gasolinerush: "A dynamic hyper-casual runner game based on speed and fuel management.",
+      desc_collecta: "An arcade mechanic based on collecting nearby objects to grow and reach goals.",
+      desc_eatandspit: "A concept where we swallow objects and spit them out to defeat opponents or obstacles.",
+      desc_smashthebodies: "A game where we grab characters and smash them into others to break them apart.",
+      desc_barbiearmy: "A runner / arcade game where we gather characters to build our own army and progress.",
+      desc_visashooter: "A game where we collect money and attract followers to tail us.",
+      desc_rockwoodgold: "A mobile arcade idle project featuring a resource gathering, crafting, and character progression loop.",
       contact_title: "Contact", contact_desc: "Feel free to reach out anytime.", btn_mail: "Send Email"
     }
   };
 
+  // Variable tracking the currently active language code ('tr' or 'en')
+  let currentLang = 'tr';
+
+  // Updates UI elements matching a data-key attribute based on the designated language
   function changeLanguage(lang, btn) {
+    currentLang = lang;
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
       if (translations[lang][key]) {
-        // HTML yapısını (<span> etiketini) korumak için innerHTML kullanıyoruz
+        // Preserves internal HTML structures (e.g. <span> nodes) for specific titles
         if (key === 'home_title') {
           el.innerHTML = translations[lang][key];
         } else {
@@ -717,6 +864,7 @@
     btn.classList.add('active');
   }
 
+  // Switches display state between primary semantic sections
   function showSection(id, btn) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -724,7 +872,7 @@
     btn.classList.add('active');
   }
 
-  // Anasayfadaki butonların sidebar'ı da tetikleyerek sayfa değiştirmesini sağlayan fonksiyon
+  // Links homepage call-to-action buttons directly into the navigation context
   function navigateToSection(id) {
     let targetBtn;
     if (id === 'portfolio') targetBtn = document.getElementById('navBtnPortfolio');
@@ -735,9 +883,25 @@
     }
   }
 
+  // Handles filtering the portfolio grid view and dynamically updates category descriptions
   function filterGrid(type, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    
+    // Select description element and update content based on active language and filter criteria
+    const descEl = document.getElementById('portfolioDesc');
+    if (type === 'all') {
+      descEl.innerText = translations[currentLang]['desc_all'];
+      descEl.setAttribute('data-key', 'desc_all');
+    } else if (type === 'pc') {
+      descEl.innerText = translations[currentLang]['desc_pc'];
+      descEl.setAttribute('data-key', 'desc_pc');
+    } else if (type === 'hc') {
+      descEl.innerText = translations[currentLang]['desc_mobile'];
+      descEl.setAttribute('data-key', 'desc_mobile');
+    }
+
+    // Toggle card visibilities within the project grid layout
     document.querySelectorAll('.card').forEach(c => {
       if (type === 'all' || c.dataset.type === type) {
         c.style.display = 'block';
@@ -747,7 +911,7 @@
     });
   }
 
-  /* --- Video Modal Fonksiyonları --- */
+  /* --- Video Lightbox Modal Controllers --- */
   function openVideo(videoId) {
     const modal = document.getElementById('videoModal');
     const player = document.getElementById('modalPlayer');
@@ -768,13 +932,21 @@
     }
   });
 
-  /* --- Otomatik Dil Kontrolü --- */
+  /* --- Automated Client-Side Locale Assessment --- */
   window.addEventListener('DOMContentLoaded', () => {
     const browserLang = navigator.language || navigator.userLanguage;
+    
     if (!browserLang.startsWith('tr')) {
-      const enBtn = document.querySelector('.lang-switch .lang-btn:nth-child(2)');
+      // If browser is not Turkish, default to English
+      const enBtn = document.getElementById('langBtnEn');
       if (enBtn) {
         changeLanguage('en', enBtn);
+      }
+    } else {
+      // Force initial render for Turkish default so empty DOM elements fill up properly
+      const trBtn = document.getElementById('langBtnTr');
+      if (trBtn) {
+        changeLanguage('tr', trBtn);
       }
     }
   });
