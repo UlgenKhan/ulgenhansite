@@ -22,7 +22,6 @@
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    overflow: hidden;
   }
 
   .main-layout {
@@ -43,6 +42,7 @@
     padding: 40px 20px;
     z-index: 100;
     transition: 0.3s;
+    box-sizing: border-box;
   }
 
   .nav-top-content {
@@ -158,7 +158,13 @@
   }
 
   /* --- Content Area --- */
-  .content-wrapper { flex: 1; padding: 40px; overflow-y: auto; }
+  .content-wrapper { 
+    flex: 1; 
+    padding: 40px; 
+    overflow-y: auto; 
+    box-sizing: border-box;
+  }
+  
   .section { display: none; animation: fadeIn 0.5s ease forwards; }
   .section.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -174,6 +180,7 @@
     padding: 50px 40px 40px 40px;
     backdrop-filter: blur(15px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
   }
 
   .home-container h1 {
@@ -287,7 +294,6 @@
     transition: all 0.3s ease;
   }
 
-  /* Hover Effects for Large Social Icons */
   .home-social-item:hover {
     color: var(--accent);
     transform: translateY(-4px);
@@ -464,6 +470,7 @@
     margin: 60px auto;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(15px);
+    box-sizing: border-box;
   }
 
   .contact-card h2 {
@@ -504,27 +511,124 @@
     transform: translateY(-3px);
   }
 
-  /* --- Mobile Responsive Layout --- */
+  /* --- Desktop Specific Overflow Containment --- */
+  @media (min-width: 769px) {
+    body { overflow: hidden; }
+  }
+
+  /* --- Mobile Responsive Layout Optimization --- */
   @media (max-width: 768px) {
-    body { overflow-y: auto; }
-    .main-layout { flex-direction: column; height: auto; }
-    nav { 
-      width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid var(--glass-border);
-      position: sticky; top: 0; flex-direction: column; align-items: center;
+    body { 
+      overflow-y: auto !important; 
+      overflow-x: hidden;
     }
+    
+    .main-layout { 
+      flex-direction: column; 
+      height: auto; 
+      width: 100vw;
+    }
+    
+    nav { 
+      width: 100%; 
+      height: auto; 
+      padding: 15px; 
+      border-right: none; 
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky; 
+      top: 0; 
+      flex-direction: column; 
+      align-items: center;
+    }
+    
     .nav-logo, .nav-brand { display: none; }
-    .nav-links { flex-direction: row; justify-content: center; flex-wrap: wrap; gap: 8px; }
-    .nav-item { width: auto; padding: 10px 15px; font-size: 0.85rem; }
-    .content-wrapper { padding: 20px; }
-    .grid { grid-template-columns: 1fr; }
-    .close-modal { top: 10px; right: 10px; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 1001; }
-    .contact-card { margin: 20px auto; padding: 35px 20px; }
-    .home-container { margin: 20px auto; padding: 40px 20px; }
+    
+    .nav-links { 
+      flex-direction: row; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+      gap: 8px; 
+      width: 100%;
+    }
+    
+    .nav-item { 
+      width: auto; 
+      padding: 10px 15px; 
+      font-size: 0.85rem; 
+    }
+    
+    .nav-footer {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      margin-top: 10px;
+      border-top: 1px solid var(--glass-border);
+      gap: 10px;
+    }
+    
+    .lang-switch {
+      border-bottom: none;
+      padding-bottom: 0;
+      width: auto;
+    }
+    
+    .content-wrapper { 
+      padding: 24px 16px; 
+      overflow-y: visible; 
+      height: auto;
+      width: 100%;
+    }
+    
+    .grid { 
+      grid-template-columns: 1fr; 
+      gap: 20px;
+    }
+    
+    .close-modal { 
+      top: 10px; 
+      right: 10px; 
+      background: rgba(0,0,0,0.5); 
+      border-radius: 50%; 
+      width: 40px; 
+      height: 40px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      z-index: 1001; 
+    }
+    
+    .contact-card { 
+      margin: 20px auto; 
+      padding: 35px 20px; 
+      width: 100%;
+    }
+    
+    .home-container { 
+      margin: 20px auto; 
+      padding: 40px 20px; 
+      width: 100%;
+    }
+    
     .home-container h1 { font-size: 2rem; }
-    .home-cta-group { flex-direction: column; gap: 15px; margin-bottom: 30px; }
-    .home-social-grid { gap: 15px; flex-wrap: wrap; padding-top: 25px; }
+    
+    .home-cta-group { 
+      flex-direction: column; 
+      gap: 15px; 
+      margin-bottom: 30px; 
+    }
+    
+    .home-social-grid { 
+      gap: 15px; 
+      flex-wrap: wrap; 
+      padding-top: 25px; 
+    }
+    
     .home-social-item .icon-wrapper { width: 50px; height: 50px; }
+    
     .home-social-item img { width: 22px; height: 22px; }
+    
     .home-social-item span { font-size: 0.75rem; }
   }
 </style>
@@ -539,15 +643,15 @@
       
       <div class="nav-links">
         <button id="navBtnHome" class="nav-item active" onclick="showSection('home', this)">
-          <img src="home_icon.png" class="nav-icon"> 
+          <img src="home_icon.png" class="nav-icon" alt=""> 
           <span data-key="nav_home"></span>
         </button>
         <button id="navBtnPortfolio" class="nav-item" onclick="showSection('portfolio', this)">
-          <img src="portfolio_icon.png" class="nav-icon"> 
+          <img src="portfolio_icon.png" class="nav-icon" alt=""> 
           <span data-key="nav_portfolio"></span>
         </button>
         <button id="navBtnContact" class="nav-item" onclick="showSection('contact', this)">
-          <img src="contact_icon.png" class="nav-icon"> 
+          <img src="contact_icon.png" class="nav-icon" alt=""> 
           <span data-key="nav_contact"></span>
         </button>
       </div>
@@ -567,7 +671,7 @@
         <a href="https://www.linkedin.com/in/ulgenbilgin/" target="_blank" class="social-link"><img src="linkedin.png" alt="Linkedin"></a>
         <a href="https://x.com/CalestialKhan/" target="_blank" class="social-link"><img src="twitter.png" alt="X"></a>
         <a href="https://www.youtube.com/@CalestialKhan" target="_blank" class="social-link"><img src="youtube.png" alt="Youtube"></a>
-	<a href="https://store.steampowered.com/curator/46128060-Calestial-Games/" target="_blank" class="social-link"><img src="steam.png" alt="Steam"></a>
+        <a href="https://store.steampowered.com/curator/46128060-Calestial-Games/" target="_blank" class="social-link"><img src="steam.png" alt="Steam"></a>
       </div>
     </div>
   </nav>
@@ -602,12 +706,12 @@
             </div>
             <span>YouTube</span>
           </a>
-	<a href="https://store.steampowered.com/curator/46128060-Calestial-Games/" target="_blank" class="home-social-item">
-	  <div class="icon-wrapper">
-	    <img src="steam.png" alt="Steam">
-	  </div>
-	  <span>Steam</span>
-	</a>
+          <a href="https://store.steampowered.com/curator/46128060-Calestial-Games/" target="_blank" class="home-social-item">
+            <div class="icon-wrapper">
+              <img src="steam.png" alt="Steam">
+            </div>
+            <span>Steam</span>
+          </a>
         </div>
 
       </div>
